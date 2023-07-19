@@ -1,0 +1,11 @@
+var x = 10;
+console.log(typeof x);
+var y = 15.0340;
+console.log(typeof y);
+console.log((3));
+var firstName = 'gabriel';
+console.log(firstName.toUpperCase());
+var fullName;
+var lastName = 'Victor';
+fullName = "".concat(firstName, " ").concat(lastName);
+console.log(fullName);
