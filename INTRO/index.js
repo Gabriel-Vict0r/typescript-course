@@ -1,4 +1,5 @@
-function nameF(name) {
-    console.log(name);
+"use strict";
+function Calc(n1, n2) {
+    console.log(`soma = ${n1 + n2}`);
 }
-nameF('gabriel');
+Calc(2, 3);
