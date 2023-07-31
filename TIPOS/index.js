@@ -39,5 +39,53 @@ passCoordinates(objCoord);
 function showNumbers(a, b, c) {
     console.log('a: ' + a);
     console.log('b: ' + b);
+    console.log('c: ' + b);
 }
-showNumbers(2, 3);
+showNumbers(2, 3, 4);
+//9 validando argumento opcional
+function advancedGreeting(firstName, lastName) {
+    if (lastName !== undefined) {
+        return `Olá, ${firstName} ${lastName}, tudo bem?`;
+    }
+    return `Olá, ${firstName}, tudo bem?`;
+}
+console.log(advancedGreeting('gabriel', 'victor'));
+console.log(advancedGreeting('gabriel'));
+//10 - union types
+function showBalance(balance) {
+    return `O saldo da conta é R$${balance}`;
+}
+console.log(showBalance(500));
+console.log(showBalance('500'));
+const Arr = [10, 'gabriel', true];
+// 11 - avançando em union types
+function showUserRole(role) {
+    if (typeof role === 'boolean') {
+        return "Usuário não aprovado!";
+    }
+    else {
+        return `a função do usuário é ${role}`;
+    }
+}
+console.log(showUserRole(false));
+console.log(showUserRole('programador'));
+function showId(id) {
+    console.log(`O id é: ${id}`);
+}
+showId(1234);
+showId('24ask2');
+showId('123');
+function showCoords(obj) {
+    return `x: ${obj.x}, y: ${obj.y} e z: ${obj.z}`;
+}
+const coordObj = {
+    x: 10,
+    y: 5,
+    z: 25
+};
+console.log(showCoords(coordObj));
+const pessoa = {
+    name: 'gabriel',
+    age: 18
+};
+console.log(pessoa);
