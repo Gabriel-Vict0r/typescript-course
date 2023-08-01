@@ -136,3 +136,18 @@ console.log(pessoa)
 type Another = {
     first: number
 }
+
+//15 - literal types
+let test: 'testando'
+
+test = 'testando'
+console.log(test)
+
+function showDirection(direction: "left" | "right" | "center") {
+    console.log(`A direção é ${direction}`)
+}
+showDirection('left')
+
+//16 - non null assertion operators
+const p = document.getElementById('some-p')
+console.log(p!.innerText)

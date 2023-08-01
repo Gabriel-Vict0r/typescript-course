@@ -89,3 +89,14 @@ const pessoa = {
     age: 18
 };
 console.log(pessoa);
+//15 - literal types
+let test;
+test = 'testando';
+console.log(test);
+function showDirection(direction) {
+    console.log(`A direção é ${direction}`);
+}
+showDirection('left');
+//16 - non null assertion operators
+const p = document.getElementById('some-p');
+console.log(p.innerText);
