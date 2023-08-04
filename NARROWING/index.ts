@@ -23,10 +23,65 @@ function operations(arr: number[], operation: string | undefined) {
         }
         else {
 
-    }
+        }
     } else {
         console.log('Por favor, defina uma operação')
     }
 }
 operations([1, 2, 3], 'sum')
 operations([1, 2, 3], 'multiply')
+
+//3 - Operador instanceof
+class User {
+    name
+
+    constructor(name: string) {
+        this.name = name
+    }
+}
+class Superuser extends User {
+    constructor(name: string) {
+        super(name)
+    }
+}
+
+const gabriel = new User('gabriel')
+const jhon = new Superuser('jhon')
+
+function userGreeting(user: object) {
+    if (user instanceof Superuser) {
+        console.log(`Olá, ${user.name} dseja ver os dados?`)
+    } else if (user instanceof User) {
+        console.log(`Olá ${user.name}`)
+    }
+}
+
+userGreeting(gabriel)
+userGreeting(jhon)
+
+//4 - operador in
+class Dog {
+    name
+    breed
+
+    constructor(name: string, breed?: string) {
+        this.name = name
+        if (breed) {
+            this.breed = breed
+        }
+    }
+}
+
+const turca = new Dog('Turca')
+const bob = new Dog('Bob', 'Pastor Alemão')
+
+function showDogDetails(dog: Dog) {
+
+    if ('breed' in dog) {
+        console.log(`O cachorro é da raça ${dog.breed}`)
+    } else {
+        console.log("O cachorro é um SRD")
+    }
+}
+showDogDetails(turca)
+showDogDetails(bob)
