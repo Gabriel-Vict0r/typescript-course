@@ -85,3 +85,29 @@ function showDogDetails(dog: Dog) {
 }
 showDogDetails(turca)
 showDogDetails(bob)
+
+//desafio 03
+
+function reviews(star: number | boolean) {
+    if (typeof star === 'boolean') {
+        return 'Please, send us a valid number'
+    } else if (typeof star === 'number') {
+        if (star === 1) {
+            return 'review: bad'
+        } else if (star === 2) {
+            return 'review: moderate'
+        } else if (star === 3) {
+            return 'review: good'
+        } else if (star === 4) {
+            return 'review: very good'
+        } else {
+            return 'review: Excelent!!!'
+        }
+    }
+}
+console.log(reviews(1))
+console.log(reviews(2))
+console.log(reviews(3))
+console.log(reviews(4))
+console.log(reviews(5))
+console.log(reviews(false))
