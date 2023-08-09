@@ -76,3 +76,14 @@ const showErrorMessage = (msg) => {
     throw new Error(msg);
 };
 //showErrorMessage('algum erro')
+//10 - resto parameters
+const sumAll = (...numbers) => {
+    return numbers.reduce((number, sum) => number + sum);
+};
+console.log(sumAll(1, 2, 3, 4));
+//11 - destructuring como parâmetro
+const showProductDetail = ({ name, price }) => {
+    return `name: ${name} \nprice: ${price}`;
+};
+const shirt = { name: 'camisa', price: 45.50 };
+console.log(showProductDetail(shirt));
