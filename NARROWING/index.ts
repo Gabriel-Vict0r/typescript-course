@@ -34,7 +34,6 @@ operations([1, 2, 3], 'multiply')
 //3 - Operador instanceof
 class User {
     name
-
     constructor(name: string) {
         this.name = name
     }
@@ -76,7 +75,6 @@ const turca = new Dog('Turca')
 const bob = new Dog('Bob', 'Pastor Alemão')
 
 function showDogDetails(dog: Dog) {
-
     if ('breed' in dog) {
         console.log(`O cachorro é da raça ${dog.breed}`)
     } else {
