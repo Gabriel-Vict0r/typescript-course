@@ -85,3 +85,11 @@ function showTruck(km: km) {
     return `${km}`
 }
 console.log(showTruck(caminhao.km))
+
+// 8 - condicional expressions type
+interface InterfaceA { }
+interface InterfaceB  extends InterfaceA{ }
+
+type teste04 = InterfaceB extends InterfaceA ? number : string
+
+const objeto: teste04 = 4
