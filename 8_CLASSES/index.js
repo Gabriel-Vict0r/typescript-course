@@ -51,3 +51,34 @@ class Dwefer {
 }
 const jhony = new Dwefer('jhony');
 console.log(jhony.greeting());
+//6 - getters
+class Person {
+    constructor(name, surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+    get greeting() {
+        return `${this.name} ${this.surname}`;
+    }
+}
+const gabriel = new Person('gabriel', 'victor');
+console.log(gabriel.greeting);
+//7 - setters
+class Coords {
+    set fillX(x) {
+        if (x === 0) {
+            return;
+        }
+        this.x = x;
+    }
+    set fillY(y) {
+        if (y === 0) {
+            return;
+        }
+        this.y = y;
+    }
+}
+const cordenadas = new Coords();
+cordenadas.fillX = 15;
+cordenadas.fillY = 0;
+console.log(cordenadas);
