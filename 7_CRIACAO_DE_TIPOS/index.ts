@@ -93,3 +93,10 @@ interface InterfaceB  extends InterfaceA{ }
 type teste04 = InterfaceB extends InterfaceA ? number : string
 
 const objeto: teste04 = 4
+
+//9 - template literals type
+type Palavra1 = 'center'
+type Palavra2 = 'top'
+type Compose = `${Palavra1}` | `${Palavra2}`;
+
+const templateLiteral: Compose = 'center'

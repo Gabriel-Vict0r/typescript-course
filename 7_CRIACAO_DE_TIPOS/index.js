@@ -55,3 +55,5 @@ function showTruck(km) {
     return `${km}`;
 }
 console.log(showTruck(caminhao.km));
+const objeto = 4;
+const templateLiteral = 'center';
