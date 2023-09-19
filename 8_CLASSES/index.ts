@@ -110,3 +110,34 @@ const cordenadas = new Coords()
 cordenadas.fillX = 15;
 cordenadas.fillY = 0;
 console.log(cordenadas)
+
+//8 - implements
+interface ShowTitle {
+    showTitle(): string
+}
+class Book implements ShowTitle {
+    title
+    constructor(title: string) {
+        this.title = title;
+    }
+    showTitle() {
+        return `o nome do livro é: ${this.title}`
+    }
+}
+const livro = new Book('Percy Jackson');
+console.log(livro.showTitle());
+
+//10 - override
+
+class Person2 {
+    greeting() {
+        console.log('show something');
+    }
+}
+class Human extends Person2 {
+    greeting(): void {
+        console.log('show the human')
+    }
+}
+const pessoa = new Human();
+console.log(pessoa.greeting());

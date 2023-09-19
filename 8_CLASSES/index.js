@@ -82,3 +82,26 @@ const cordenadas = new Coords();
 cordenadas.fillX = 15;
 cordenadas.fillY = 0;
 console.log(cordenadas);
+class Book {
+    constructor(title) {
+        this.title = title;
+    }
+    showTitle() {
+        return `o nome do livro é: ${this.title}`;
+    }
+}
+const livro = new Book('Percy Jackson');
+console.log(livro.showTitle());
+//10 - override
+class Person2 {
+    greeting() {
+        console.log('show something');
+    }
+}
+class Human extends Person2 {
+    greeting() {
+        console.log('show the human');
+    }
+}
+const pessoa = new Human();
+console.log(pessoa.greeting());
