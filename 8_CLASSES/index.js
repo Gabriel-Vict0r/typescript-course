@@ -105,3 +105,105 @@ class Human extends Person2 {
 }
 const pessoa = new Human();
 console.log(pessoa.greeting());
+//11 public
+class C {
+}
+class D extends C {
+}
+const instanceC = new C();
+const instanceD = new D();
+//12 protect
+class F {
+    constructor() {
+        this.x = 10;
+    }
+    protectestProtect() {
+        console.log('mostrando o protect');
+    }
+}
+class G extends F {
+    showProtect() {
+        return `o atributo é ${this.x}`;
+    }
+    showMethod() {
+        return this.protectestProtect();
+    }
+}
+const instanceG = new G();
+console.log(instanceG.showProtect());
+console.log(instanceG.showMethod());
+//13 private
+class K {
+    constructor() {
+        this.teste = 'private';
+    }
+    showPrivate() {
+        return this.teste;
+    }
+    testMethod() {
+        console.log('private method');
+    }
+    showMethodPrivate() {
+        this.testMethod();
+    }
+}
+const testePrivate = new K();
+console.log(testePrivate.showPrivate());
+console.log(testePrivate.showMethodPrivate());
+//14 - static members
+class Static {
+}
+Static.atributeStatic = 'estático';
+console.log(Static.atributeStatic);
+//15 - generic class
+class Generic {
+    constructor(first, second, tird) {
+        this.first = first;
+        this.second = second;
+        this.tird = tird;
+    }
+    showPresentation() {
+        return `${this.first} ${this.second} ${this.tird}`;
+    }
+}
+const generic = new Generic('caixa', 'de', 'mistério');
+console.log(generic.showPresentation());
+//16 - parameters properties
+class ParameterProperties {
+    constructor(product, qtd, price) {
+        this.product = product;
+        this.qtd = qtd;
+        this.price = price;
+        this.product = product;
+        this.qtd = qtd;
+        this.price = price;
+    }
+    get showQtd() {
+        return this.qtd;
+    }
+    get showPrice() {
+        return this.price;
+    }
+}
+const shirt = new ParameterProperties('camisa', 15, 14.99);
+console.log(shirt);
+const classExpression = class {
+    constructor(name) {
+        this.name = name;
+    }
+};
+const expressao = new classExpression('Class expression');
+console.log(expressao);
+class Abstrata {
+}
+class ShowAbs extends Abstrata {
+    constructor(name) {
+        super();
+        this.name = name;
+    }
+    showName() {
+        return this.name;
+    }
+}
+const abstrato = new ShowAbs('abstrair');
+console.log(abstrato);

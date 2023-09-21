@@ -141,3 +141,118 @@ class Human extends Person2 {
 }
 const pessoa = new Human();
 console.log(pessoa.greeting());
+
+//11 public
+class C {
+    public c!: string
+}
+class D extends C {
+    public d!: string;
+}
+const instanceC = new C();
+const instanceD = new D();
+
+//12 protect
+class F {
+    protected x: number = 10;
+    protected protectestProtect() {
+        console.log('mostrando o protect');
+    }
+}
+class G extends F {
+    showProtect() {
+        return `o atributo é ${this.x}`;
+    }
+    showMethod() {
+        return this.protectestProtect();
+    }
+}
+const instanceG = new G();
+console.log(instanceG.showProtect());
+console.log(instanceG.showMethod());
+
+//13 private
+class K {
+    private teste = 'private';
+    showPrivate() {
+        return this.teste
+    }
+    private testMethod() {
+        console.log('private method');
+    }
+    showMethodPrivate() {
+        this.testMethod();
+    }
+}
+const testePrivate = new K();
+console.log(testePrivate.showPrivate());
+console.log(testePrivate.showMethodPrivate());
+
+//14 - static members
+
+class Static {
+    static atributeStatic: string = 'estático'
+}
+console.log(Static.atributeStatic);
+
+//15 - generic class
+
+class Generic<T, U, G> {
+    first
+    second
+    tird
+    constructor(first: T, second: U, tird: G) {
+        this.first = first
+        this.second = second
+        this.tird = tird
+    }
+    showPresentation() {
+        return `${this.first} ${this.second} ${this.tird}`
+    }
+}
+const generic = new Generic('caixa', 'de', 'mistério')
+console.log(generic.showPresentation());
+
+//16 - parameters properties
+class ParameterProperties {
+    [x: string]: any
+    constructor(public product: string, private qtd: number, private price: number) {
+        this.product = product;
+        this.qtd = qtd;
+        this.price = price;
+    }
+    get showQtd() {
+        return this.qtd
+    }
+    get showPrice() {
+        return this.price;
+    }
+}
+const shirt = new ParameterProperties('camisa', 15, 14.99);
+console.log(shirt);
+
+const classExpression = class <T> {
+    name
+    constructor(name: T) {
+        this.name = name
+    }
+}
+const expressao = new classExpression('Class expression')
+console.log(expressao);
+
+abstract class Abstrata {
+    abstract showName(): string
+}
+
+class ShowAbs extends Abstrata{
+    name
+    constructor(name: string) {
+        super()
+        this.name = name
+    }
+    showName(): string {
+        return this.name
+    }
+}
+const abstrato = new ShowAbs('abstrair')
+console.log(abstrato);
