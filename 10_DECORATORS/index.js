@@ -48,6 +48,7 @@ function showDecorator(constructor) {
     console.log(constructor.name);
 }
 let ShowName = class ShowName {
+    name;
     constructor(name) {
         this.name = name;
     }
@@ -57,3 +58,130 @@ ShowName = __decorate([
 ], ShowName);
 const user = new ShowName('gabriel');
 console.log(user);
+//4 - method decorators
+function enumerable(value) {
+    return function (target, propertyKey, descriptor) {
+        descriptor.enumerable = value;
+    };
+}
+class Machine {
+    name;
+    constructor(name) {
+        this.name = name;
+    }
+    showName() {
+        console.log(this);
+        return `O nome é: ${this.name}`;
+    }
+}
+__decorate([
+    enumerable(true)
+], Machine.prototype, "showName", null);
+const trator = new Machine('trator');
+console.log(trator.showName());
+//5 - acessor decorator
+class Monster {
+    name;
+    age;
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    get showName() {
+        return this.name;
+    }
+    get showAge() {
+        return this.age;
+    }
+}
+__decorate([
+    enumerable(true)
+], Monster.prototype, "showName", null);
+__decorate([
+    enumerable(false)
+], Monster.prototype, "showAge", null);
+const charizard = new Monster('charizard', 209);
+console.log(charizard);
+function changeId() {
+    return function (target, propertyKey) {
+        let value;
+        const getter = function () {
+            return value;
+        };
+        const setter = function (newVal) {
+            value = newVal.padStart(5, '0');
+        };
+        Object.defineProperty(target, propertyKey, {
+            set: setter,
+            get: getter,
+        });
+    };
+}
+class Id {
+    id;
+    constructor(id) {
+        this.id = id;
+    }
+}
+__decorate([
+    changeId()
+], Id.prototype, "id", void 0);
+const id = new Id(1);
+console.log(id);
+//exemplo real com class decorator
+function createdDate(created) {
+    created.prototype.createdAt = new Date();
+}
+let Book = class Book {
+    id;
+    createdAt;
+    constructor(id) {
+        this.id = id;
+    }
+};
+Book = __decorate([
+    createdDate
+], Book);
+let Pen = class Pen {
+    id;
+    constructor(id) {
+        this.id = id;
+    }
+};
+Pen = __decorate([
+    createdDate
+], Pen);
+const book = new Book(12);
+const pen = new Pen(12);
+console.log(book.createdAt);
+console.log(pen);
+// 8 - method decorator
+function checkIfUserPosted() {
+    return function (target, key, descriptor) {
+        const chieldFunction = descriptor.value;
+        console.log(chieldFunction);
+        descriptor.value = function (...args) {
+            if (args[1] === true) {
+                console.log('Usuário já postou!');
+                return null;
+            }
+            else {
+                return chieldFunction.apply(this, args);
+            }
+        };
+        return descriptor;
+    };
+}
+class Post {
+    alreadyPosted = false;
+    post(content, alreadyPosted) {
+        this.alreadyPosted = true;
+        console.log(`Post do usuário: ${content}`);
+    }
+}
+__decorate([
+    checkIfUserPosted()
+], Post.prototype, "post", null);
+const newPost = new Post();
+newPost.post('Meu primeiro post', newPost.alreadyPosted);
+newPost.post('Meu primeiro post', newPost.alreadyPosted);
